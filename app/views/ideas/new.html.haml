@@ -7,6 +7,13 @@
   = f.text_area :description
   %li Location
   = f.text_field :location
-  = f.submit "Create"
+  %hr
+  = f.select :category, Category.all.map{|cat| [cat.title, cat.id]}
+  %hr
+  = link_to "Neue Kategorie anlegen", categories_path, :class => "btn btn-success"
+  %hr
+  = f.submit "Neue Idee speichern"
+  %hr
 
 = link_to "Zurück zum Start", ideas_path, :class => "btn btn-success"
+%hr

@@ -1,8 +1,14 @@
 = link_to "New Idea", new_idea_path
 
 .jumbotron
-  - collection.each do |idea|
-    %li.h2= idea.title
-    %li= idea.description
-    %li= idea.location
-    %li -------------------------------------------------------------------
+  %ul
+    - collection.each do |idea|
+      %li
+        %h2= idea.title
+        %p= idea.description
+        %h4= idea.location
+        %span
+          = image_tag(idea.category.image)
+          = idea.category.try(:title)
+        %h3= idea.user.try(:name)
+        %hr

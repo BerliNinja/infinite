@@ -12,8 +12,7 @@ class IdeasController < ApplicationController
   end
 
   def create
-    @idea = Idea.new(permitted_params)
-
+    @idea = Idea.new(idea_creation_params)
     if @idea.save
       redirect_to @idea, notice: 'ok!'
     else
@@ -27,6 +26,13 @@ class IdeasController < ApplicationController
   end
 
   protected
+
+  def idea_creation_params
+    permitted_params.merge({
+      category_id: params.fetch(:idea, {})[:category],
+      user_id: current_user.id
+    })
+  end
 
   def collection
     @ideas ||= Idea.all
