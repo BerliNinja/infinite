@@ -9,6 +9,10 @@ gem 'pg'
 gem 'sass-rails', '~> 5.0'
 
 gem 'haml'
+gem 'haml-rails'
+gem 'haml-contrib'
+gem 'RedCloth'
+gem 'bootstrap-sass'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
@@ -18,6 +22,8 @@ gem 'uglifier', '>= 1.3.0'
 gem 'jquery-rails'
 
 gem 'turbolinks'
+
+gem 'devise'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
