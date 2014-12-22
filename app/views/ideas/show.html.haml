@@ -1,1 +1,8 @@
-= @idea.inspect
+%li
+  = @idea.title
+%li
+  = @idea.description
+%li
+  = @idea.location
+
+= link_to "Zurück zum Start", ideas_path

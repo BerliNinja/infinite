@@ -1,7 +1,12 @@
-here is your new idea template
+%h2 Hier kannst du deine neue Idee eintragen
 
 = form_for @idea do |f|
+  %li Titel
   = f.text_field :title
+  %li Beschreibung
   = f.text_area :description
+  %li Location
   = f.text_field :location
   = f.submit "Create"
+
+= link_to "Zurück zum Start", ideas_path, :class => "btn btn-success"
