@@ -6,4 +6,13 @@ require 'rails_helper'
       expect(response.status).to eql 200
     end
 
+    context 'with valid parameters submitted' do
+      describe 'POST create' do
+        it "creates an idea" do
+          expect { post :create, { idea: { title: 'foo', description: 'bar'} } }.to change { Idea.count }
+          expect(response.status).to eql 302
+        end
+      end
+    end
+
   end
