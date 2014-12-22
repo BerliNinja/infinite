@@ -1,0 +1,19 @@
+%h2 Hier kannst du deine Idee bearbeiten
+
+= form_for resource do |f|
+  %li Titel
+  = f.text_field :title
+  %li Beschreibung
+  = f.text_area :description
+  %li Location
+  = f.text_field :location
+  %hr
+  = f.select :category, Category.all.map{|cat| [cat.title, cat.id]}
+  %hr
+  = link_to "Neue Kategorie anlegen", categories_path, :class => "btn btn-success"
+  %hr
+  = f.submit "Neue Idee speichern"
+  %hr
+
+= link_to "Zurück zum Start", ideas_path, :class => "btn btn-success"
+%hr

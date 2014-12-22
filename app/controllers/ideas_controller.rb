@@ -2,7 +2,7 @@ class IdeasController < ApplicationController
 
   before_action :authenticate_user!
 
-  helper_method :collection
+  helper_method :collection, :resource
 
   def index
   end
@@ -20,12 +20,17 @@ class IdeasController < ApplicationController
     end
   end
 
-
   def show
-    @idea = Idea.find(params[:id])
+  end
+
+  def edit
   end
 
   protected
+
+  def resource
+    @idea ||= Idea.find(params[:id])
+  end
 
   def idea_creation_params
     permitted_params.merge({
