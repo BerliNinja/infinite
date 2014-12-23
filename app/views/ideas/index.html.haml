@@ -1,7 +1,7 @@
 .container
   .row
     .col-xs-10
-      %h1 Hallo #{current_user.name}
+      %h1 Hallo #{current_user.name}, es gibt #{collection.count} Ideen
     .col-xs-2.margin-top
     = link_to "Neue Idee", new_idea_path, :class => "btn btn-success"
 
