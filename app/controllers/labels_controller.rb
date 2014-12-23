@@ -1,4 +1,4 @@
-class LabelsController < BaseController
+class LabelsController < ApplicationController
 
   before_action :authenticate_user!
 
