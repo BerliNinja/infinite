@@ -10,25 +10,25 @@
     - collection.each do |idea|
       .panel
         .panel-heading
-          %h1.panel-title.fa.fa-birthday-cake= link_to idea.title, idea_path(idea)
+          %h1.panel-title.fa.fa-heart= link_to " #{idea.title}", idea_path(idea)
         .panel-body
           .row
             .col-xs-3
-              %h3.fa.fa-comment.fa-2x Beschreibung
+              %h3 Beschreibung
               = idea.description
             .col-xs-2
-              %h3.fa.fa-bullseye.fa-2x Location
+              %h3 Location
               = idea.location
             .col-xs-3
-              %h3.fa.fa-ellipsis-v.fa-2x Kategorie
+              %h3 Kategorie
               = image_tag(idea.category.image)
               = idea.category.try(:title)
             .col-xs-2
-              %h3.fa.fa-smile-o.fa-2x Von
+              %h3 Von
               .crazy-name
                 = idea.user.try(:name).upcase if idea.user
             .col-xs-2
-              %h3.fa.fa-comment.fa-2x Status
+              %h3 Status
               - if idea.label.try(:name) == "offen"
                 .btn.btn-danger
                   = idea.label.try(:name)
