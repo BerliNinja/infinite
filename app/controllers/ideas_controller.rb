@@ -25,6 +25,15 @@ class IdeasController < ApplicationController
   end
 
   def edit
+    @idea = Idea.find(params[:id])
+  end
+
+  def update
+  end
+
+  def delete
+    Idea.find(params[:id]).destroy
+    render :new
   end
 
   protected

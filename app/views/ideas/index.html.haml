@@ -10,7 +10,7 @@
     - collection.each do |idea|
       .panel
         .panel-heading
-          %h1.panel-title.fa.fa-birthday-cake= idea.title
+          %h1.panel-title.fa.fa-birthday-cake= link_to idea.title, idea_path(idea)
         .panel-body
           .row
             .col-xs-3
