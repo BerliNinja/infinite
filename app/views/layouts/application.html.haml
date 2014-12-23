@@ -5,6 +5,7 @@
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
+    %link{:href => "//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css", :rel => "stylesheet"}/
   %body
     %nav.navbar.navbar-inverse{:role => "navigation"}
       .container-fluid
@@ -20,22 +21,20 @@
         #bs-example-navbar-collapse-1.collapse.navbar-collapse
           %ul.nav.navbar-nav
             %li.active
-              %a{:href => "#"}
+              %a{:href => "/"}
                 Home
                 %span.sr-only (current)
             %li
-              %a{:href => "#"} About
+              %a{:href => "about"} About
+
             %li.dropdown
               %a.dropdown-toggle{"aria-expanded" => "false", "data-toggle" => "dropdown", :href => "#", :role => "button"}
-                User
+                Benutzer
                 %span.caret
               %ul.dropdown-menu{:role => "menu"}
                 %li
-                  %a{:href => "#"} Nina
-                %li
-                  %a{:href => "#"} Fab
-                %li
-                  %a{:href => "#"} Conny
+                  %a{:href => "#"} #{current_user.try(:name)}
+
                 %li.divider
                 %li
                   %a{:href => "#"} Separated link
@@ -44,30 +43,28 @@
                   %a{:href => "#"} One more separated link
           %ul.nav.navbar-nav.navbar-right
             %li
-              %a{:href => "#"} Sitemap
+              %a{:href => "sitemap"} Sitemap
             %li.dropdown
               %a.dropdown-toggle{"aria-expanded" => "false", "data-toggle" => "dropdown", :href => "#", :role => "button"}
-                Username
+                = current_user.name
                 %span.caret
               %ul.dropdown-menu{:role => "menu"}
                 %li
                   %a{:href => "#"} Settings
                 %li
-                  = link_to 'Log out', destroy_user_session_path, method: :delete
-                %li
-                  %a{:href => "#"} Something else here
+                  %a{:href => "#"} Your account
                 %li.divider
                 %li
-                  %a{:href => "#"} Separated link
+                  = link_to 'Log out', destroy_user_session_path, method: :delete
         / /.navbar-collapse
       / /.container-fluid
 
     = yield
     = flash[:notice] || flash[:message]
     %footer
-      .container
-        .nav.navbar-nav.navbar-rigth
-          %a{:href => "#"}
-            Home
-          %a{:href => "#"} About
+      .navbar.navbar-inverse.navbar-fixed-bottom
+        .container
+          %p.navbar-text.pull-left Site Built By Nina
+          %a.navbar-btn.btn-danger.btn.pull-right{:href => "stayinginberlin.blogspot.com"} Checke meinen Blog aus
+
 

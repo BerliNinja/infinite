@@ -10,6 +10,8 @@
   %hr
   = f.select :category, Category.all.map{|cat| [cat.title, cat.id]}
   %hr
+  =f.select :label, Label.all.map{|lab| [lab.name, lab.id]}
+  %hr
   = link_to "Neue Kategorie anlegen", categories_path, :class => "btn btn-success"
   %hr
   = f.submit "Neue Idee speichern"

@@ -14,7 +14,8 @@ class IdeasController < ApplicationController
   def create
     @idea = Idea.new(idea_creation_params)
     if @idea.save
-      redirect_to @idea, notice: 'ok!'
+      redirect_to @idea,
+      notice: 'Everything worked!'
     else
       render :new
     end
@@ -35,7 +36,8 @@ class IdeasController < ApplicationController
   def idea_creation_params
     permitted_params.merge({
       category_id: params.fetch(:idea, {})[:category],
-      user_id: current_user.id
+      user_id: current_user.id,
+      label_id: params.fetch(:idea, {})[:label]
     })
   end
 

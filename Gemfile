@@ -8,6 +8,8 @@ gem 'pg'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 
+gem 'font-awesome-sass'
+
 gem 'haml'
 gem 'haml-rails'
 gem 'haml-contrib'

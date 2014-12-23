@@ -1,15 +1,41 @@
-= link_to "New Idea", new_idea_path
+.container
+  .row
+    .col-xs-10
+      %h1 Hallo #{current_user.name}
+    .col-xs-2.margin-top
+    = link_to "Neue Idee", new_idea_path, :class => "btn btn-success"
 
-.jumbotron
+.container
   %ul
     - collection.each do |idea|
-      %li
-        %h2= idea.title
-        %p= idea.description
-        %h4= idea.location
-        %span
-          = image_tag(idea.category.image)
-          = idea.category.try(:title)
-        %h3= idea.user.try(:name)
-        = link_to "Idee bearbeiten", edit_idea_path(idea)
-        %hr
+      .panel
+        .panel-heading
+          %h1.panel-title.fa.fa-birthday-cake= idea.title
+        .panel-body
+          .row
+            .col-xs-3
+              %h3.fa.fa-comment.fa-2x Beschreibung
+              = idea.description
+            .col-xs-2
+              %h3.fa.fa-bullseye.fa-2x Location
+              = idea.location
+            .col-xs-3
+              %h3.fa.fa-ellipsis-v.fa-2x Kategorie
+              = image_tag(idea.category.image)
+              = idea.category.try(:title)
+            .col-xs-2
+              %h3.fa.fa-smile-o.fa-2x Von
+              .crazy-name
+                = idea.user.try(:name).upcase if idea.user
+            .col-xs-2
+              %h3.fa.fa-comment.fa-2x Status
+              - if idea.label.try(:name) == "offen"
+                .btn.btn-danger
+                  = idea.label.try(:name)
+              - if idea.label.try(:name) == "nochmal"
+                .btn.btn-warning
+                  = idea.label.try(:name)
+              - if idea.label.try(:name) == "erledigt"
+                .btn.btn-success
+                  = idea.label.try(:name)
+          = link_to "Idee bearbeiten", edit_idea_path(idea), :class => "btn btn-warning"

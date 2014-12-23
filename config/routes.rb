@@ -5,4 +5,8 @@ Rails.application.routes.draw do
   resources :ideas
   resources :categories
 
+  get '/about' => 'pages#about'
+  get '/contact' => 'pages#contact'
+  get '/sitemap' => 'pages#sitemap'
+
 end
