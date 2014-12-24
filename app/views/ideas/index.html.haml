@@ -10,7 +10,7 @@
     - collection.each do |idea|
       .panel
         .panel-heading
-          %h1.panel-title.fa.fa-heart= link_to " #{idea.title}", idea_path(idea)
+          %h1.panel-title.fa.fa-heart= link_to "  #{idea.title}", idea_path(idea)
         .panel-body
           .row
             .col-xs-3
@@ -25,8 +25,13 @@
               = idea.category.try(:title)
             .col-xs-2
               %h3 Von
-              .crazy-name
-                = idea.user.try(:name).upcase if idea.user
+              -if idea.user.try(:name)
+                - if idea.user.try(:name).upcase == "NINA" && idea.user
+                  .crazy-name
+                    = idea.user.try(:name).upcase if idea.user
+                - else
+                  .crazy-name2
+                    = idea.user.try(:name).upcase if idea.user
             .col-xs-2
               %h3 Status
               - if idea.label.try(:name) == "offen"
