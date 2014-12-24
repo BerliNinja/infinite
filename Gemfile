@@ -7,7 +7,6 @@ gem 'rails', '4.2.0'
 gem 'pg'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
-
 gem 'font-awesome-sass'
 
 gem 'haml'
@@ -25,9 +24,15 @@ gem 'jquery-rails'
 
 gem 'turbolinks'
 
+# Handle Login
+
 gem 'devise'
 
 gem 'rails_serve_static_assets'
+
+# Contact Form
+gem 'mail_form', '~> 1.5.0.rc'
+gem 'simple_form', '~> 3.0.0.rc'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

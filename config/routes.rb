@@ -6,7 +6,8 @@ Rails.application.routes.draw do
   resources :categories
 
   get '/about' => 'pages#about'
-  get '/contact' => 'pages#contact'
   get '/sitemap' => 'pages#sitemap'
+
+  resources "contacts", only: [:new, :create]
 
 end

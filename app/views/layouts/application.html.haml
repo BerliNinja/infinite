@@ -25,7 +25,7 @@
                 Home
                 %span.sr-only (current)
             %li
-              %a{:href => "about"} About
+              = link_to t('About'), about_path
 
             %li.dropdown
               %a.dropdown-toggle{"aria-expanded" => "false", "data-toggle" => "dropdown", :href => "#", :role => "button"}
@@ -43,7 +43,9 @@
                   %a{:href => "#"} One more separated link
           %ul.nav.navbar-nav.navbar-right
             %li
-              %a{:href => "sitemap"} Sitemap
+              = link_to t('Contact'), new_contact_path
+            %li
+              = link_to t('Sitemap'), sitemap_path
             %li.dropdown
               %a.dropdown-toggle{"aria-expanded" => "false", "data-toggle" => "dropdown", :href => "#", :role => "button"}
                 = current_user.name
@@ -61,6 +63,13 @@
 
     = yield
     = flash[:notice] || flash[:message]
+    .container
+      - flash.each do |name, msg|
+        - if msg.is_a?(String)
+          %div{:class => "alert alert-#{name == :notice ? "success" : "error"}"}
+            %a.close{"data-dismiss" => "alert"}
+              &times;
+            = content_tag :div, msg, :id => "flash_#{name}"
     %footer
       .navbar.navbar-inverse.navbar-fixed-bottom
         .container
