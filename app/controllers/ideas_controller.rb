@@ -19,6 +19,7 @@ class IdeasController < ApplicationController
     else
       render :new
     end
+
   end
 
   def show
@@ -26,9 +27,14 @@ class IdeasController < ApplicationController
 
   def edit
     @idea = Idea.find(params[:id])
+    @idea.save
   end
 
   def update
+
+    @idea = Idea.find(params[:id])
+    @idea.update!(idea_creation_params)
+    redirect_to @idea
   end
 
   def delete
