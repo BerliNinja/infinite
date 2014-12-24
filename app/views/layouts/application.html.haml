@@ -6,6 +6,7 @@
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
     %link{:href => "//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css", :rel => "stylesheet"}/
+    %link{:href => "favicon.ico", :rel => "shortcut icon", :type => "/love"}/
   %body
     %nav.navbar.navbar-inverse{:role => "navigation"}
       .container-fluid
@@ -34,13 +35,12 @@
               %ul.dropdown-menu{:role => "menu"}
                 %li
                   %a{:href => "#"} #{current_user.try(:name)}
-
                 %li.divider
                 %li
                   %a{:href => "#"} Separated link
-                %li.divider
-                %li
-                  %a{:href => "#"} One more separated link
+            %li
+              = link_to ('♥'), love_path
+
           %ul.nav.navbar-nav.navbar-right
             %li
               = link_to t('Contact'), new_contact_path
