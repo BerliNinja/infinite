@@ -1,4 +1,4 @@
-.container
+.container.cat
   .panel
     .panel-heading
       %h1.panel-title.fa.fa-birthday-cake= resource.title
@@ -12,12 +12,15 @@
           = resource.location
         .col-xs-3
           %h3.fa.fa-ellipsis-v.fa-2x Kategorie
-          = image_tag(resource.category.image)
-          = resource.category.try(:title)
+          %li
+            = image_tag(resource.category.image)
+          %h3
+            %li
+              = resource.category.try(:title)
         .col-xs-2
           %h3.fa.fa-smile-o.fa-2x Von
           .crazy-name
-            = resource.user.try(:name).upcase if resource.user
+            = resource.user.try(:name).upcase.chr if resource.user
         .col-xs-2
           %h3.fa.fa-comment.fa-2x Status
           - if resource.label.try(:name) == "offen"

@@ -29,7 +29,7 @@
             .col-xs-2
               %h3 Von
               -if idea.user.try(:name)
-                - if idea.user.try(:name).upcase == "NINA" && idea.user
+                - if idea.user.try(:name).upcase.chr == "NINA" && idea.user
                   .crazy-name
                     = idea.user.try(:name).upcase if idea.user
                 - else
