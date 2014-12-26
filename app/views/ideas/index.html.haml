@@ -1,8 +1,8 @@
 .container
   .row
     .col-xs-10
-      %h1 Hallo #{current_user.name}, es gibt #{collection.count} Ideen
-    .col-xs-2.margin-top
+      %h1.indented Hallo #{current_user.name}, es gibt bereits #{collection.count} Ideen
+    .col-xs-2.margin-top.pull-left
     = link_to "Neue Idee", new_idea_path, :class => "btn btn-success"
 
 .container.cat
@@ -21,8 +21,11 @@
               = idea.location
             .col-xs-3
               %h3 Kategorie
-              = image_tag(idea.category.image)
-              = idea.category.try(:title)
+              %li
+                = image_tag(idea.category.image)
+              %li
+                %h4
+                  = idea.category.try(:title)
             .col-xs-2
               %h3 Von
               -if idea.user.try(:name)
