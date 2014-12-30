@@ -20,7 +20,7 @@
         .col-xs-2
           %h3.fa.fa-smile-o.fa-2x Von
           .crazy-name
-            = resource.user.try(:name).upcase.chr if resource.user
+            = resource.user.try(:name).upcase if resource.user
         .col-xs-2
           %h3.fa.fa-comment.fa-2x Status
           - if resource.label.try(:name) == "offen"
