@@ -1,19 +1,23 @@
-%h2 Hier kannst du deine neue Idee eintragen
+.container
+  .row
 
-= form_for @idea do |f|
-  %li Titel
-  = f.text_field :title
-  %li Beschreibung
-  = f.text_area :description
-  %li Location
-  = f.text_field :location
-  %hr
-  = f.select :category, Category.all.map{|cat| [cat.title, cat.id]}
-  %hr
-  =f.select :label, Label.all.map{|lab| [lab.name, lab.id]}
-  %hr
-  = f.submit "Neue Idee speichern"
-  %hr
+    %h2 Hier kannst du deine neue Idee eintragen
 
-= link_to "Zurück zum Start", ideas_path, :class => "btn btn-success"
-%hr
+    = form_for @idea do |f|
+      %li Titel
+      = f.text_field :title
+      %li Beschreibung
+      = f.text_area :description
+      %li Location
+      = f.text_field :location
+      %hr
+      Kategorie
+      = f.select :category, Category.all.map{|cat| [cat.title, cat.id]}
+      Label
+      =f.select :label, Label.all.map{|lab| [lab.name, lab.id]}
+      %hr
+      = f.submit "Neue Idee speichern", :class => "btn btn-warning"
+      %hr
+
+    = link_to "Zurück zum Start", ideas_path, :class => "btn btn-success"
+    %hr
