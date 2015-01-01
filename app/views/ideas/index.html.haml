@@ -4,6 +4,16 @@
       %h1.indented Hallo #{current_user.name}, es gibt bereits #{collection.count} Ideen
     .col-xs-2.margin-top.pull-left
     = link_to "Neue Idee", new_idea_path, :class => "btn btn-success"
+.container
+  .row.indented
+    .col-xs-3
+      Sortieren nach:
+    .col-xs-3
+      = select_tag :letter, options_for_select(('A'..'Z').to_a << "Sonstige", params[:letter]), 'data-action' => "autosubmit", prompt: "ABC-Suche"
+    .col-xs-3
+      = select_tag :category_id, options_from_collection_for_select(Category.order('title'), :id, :title, params[:category_id]), prompt: "Kategorie", 'data-action' => "autosubmit"
+    .col-xs-3
+      = select_tag :label_name, options_for_select([["offen", "Offen"], ["nochmal", "Nochmal"], ["erledigt", "Erledigt"]], params[:label_name]), prompt: "Label"
 
 .container.cat
   %ul
@@ -47,3 +57,22 @@
                 .btn.btn-success
                   = idea.label.try(:name)
           = link_to "Idee bearbeiten", edit_idea_path(idea), :class => "btn btn-warning"
+
+:javascript
+  $(document).ready(function() {
+    $('#p-companies-form select').each(function() {
+      $(this).change(function() {
+        if(this.id === 'letter') { $('#query').val(""); }
+        $('#companies-overview-search').click();
+      });
+    });
+
+    $('#companies-overview-search').click(function() {
+      // If query string is supplied (and not its default placeholder value)
+      // and the letter select has a value set, blank the query string.
+      if($('#query').val() != "" && $('#query').val() != $('#query').attr('placeholder') && $('#letter').val() != "") {
+        $('#letter').val("");
+      }
+    });
+
+  });
