@@ -1,5 +1,8 @@
 .container
   .row
+    .col-xs-5
+      %h2 Hallo liebster Neuling!
+      %h2 Du bist bei 'INFINITE' gelandet der Seite für unendlich viele Ideen. Bitte registriere Dich einmal hier mit dem Namen 'Fab', E-Mailadresse und Passwort solltest Du Dir merken, können aber fiktiv sein.
     %h2 Sign up
     = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
       = devise_error_messages!
