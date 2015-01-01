@@ -37,7 +37,7 @@
                   %a{:href => "#"} #{current_user.try(:name)}
                 %li.divider
                 %li
-                  %a{:href => "#"} Separated link
+                  = link_to ('Funktionen'), function_path
             %li
               = link_to ('♥'), love_path
 

@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   get '/about' => 'pages#about'
   get '/sitemap' => 'pages#sitemap'
   get '/love' => 'pages#love'
+  get '/function' => 'pages#function'
 
   resources "contacts", only: [:new, :create]
 

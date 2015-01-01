@@ -6,6 +6,15 @@
     = link_to "Neue Idee", new_idea_path, :class => "btn btn-success"
 .container
   .row.indented
+    .col-xs-10
+    - if current_user.try(:name).upcase == "FAB" && current_user
+      %h3
+      Hallo Fabi diese Seite soll ein Geburtstagsgeschenk sein. Natürlich war ich nicht untätig, sondern habe ganz fleißig Ruby geübt. Hier können wir nun all unsere Ideen verwalten. Die Hauptansichten sind alle vorhanden. Ich arbeite momentan an der Sortierfunktion, sodass dann nur noch alle offenen oder erledigten Ideen angezeigt werden können. Außerdem kannst du natürlich ab sofort auch eigene Ideen bezüglich der User Experience einbringen :-*
+      %hr
+    - else
+      Hallo Nina
+.container
+  .row.indented
     .col-xs-3
       Sortieren nach:
     .col-xs-3
