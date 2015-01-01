@@ -1,12 +1,15 @@
 .container.love
   .panel
     .panel-heading
-      .row
+      .row.indented
         .col4
           %h2
             Alles Gute zum Geburtstag!!!!!!!
     .panel-body
-      .row
-      Wir schreiben heute den
-      = Time.now.strftime("%d.%m.%Y")
+      .row.indented
+        %h2
+          Wir schreiben heute den
+          = Time.now.strftime("%d.%m.%Y")
+      .row.indented
+        = image_tag "/iheartu.jpg"
 

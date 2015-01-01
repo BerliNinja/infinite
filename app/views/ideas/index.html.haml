@@ -12,16 +12,18 @@
       Hallo Fabi diese Seite soll ein Geburtstagsgeschenk sein. Natürlich war ich nicht untätig, sondern habe ganz fleißig Ruby geübt. Hier können wir nun all unsere Ideen verwalten. Die Hauptansichten sind alle vorhanden. Ich arbeite momentan an der Sortierfunktion, sodass dann nur noch alle offenen oder erledigten Ideen angezeigt werden können. Außerdem kannst du natürlich ab sofort auch eigene Ideen bezüglich der User Experience einbringen :-*
       %hr
     - else
+      %h3
       Hallo Nina
+      %hr
 .container
-  .row.indented
-    .col-xs-3
+  .row
+    .col-xs-3.indented
       Sortieren nach:
-    .col-xs-3
+    .col-xs-2.indented
       = select_tag :letter, options_for_select(('A'..'Z').to_a << "Sonstige", params[:letter]), 'data-action' => "autosubmit", prompt: "ABC-Suche"
-    .col-xs-3
+    .col-xs-2.indented
       = select_tag :category_id, options_from_collection_for_select(Category.order('title'), :id, :title, params[:category_id]), prompt: "Kategorie", 'data-action' => "autosubmit"
-    .col-xs-3
+    .col-xs-2.indented
       = select_tag :label_name, options_for_select([["offen", "Offen"], ["nochmal", "Nochmal"], ["erledigt", "Erledigt"]], params[:label_name]), prompt: "Label"
 
 .container.cat
