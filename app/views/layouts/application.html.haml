@@ -26,7 +26,7 @@
                 Home
                 %span.sr-only (current)
             %li
-              = link_to t('About'), about_path
+              = link_to ('About'), about_path
 
             %li.dropdown
               %a.dropdown-toggle{"aria-expanded" => "false", "data-toggle" => "dropdown", :href => "#", :role => "button"}
@@ -38,6 +38,8 @@
                 %li.divider
                 %li
                   = link_to ('Funktionen'), function_path
+            %li
+              = link_to ('Tickets'), tickets_path
             %li
               = link_to ('♥'), love_path
 

@@ -1,0 +1,33 @@
+.container
+  .row
+    .col-xs-10
+      %h1.indented Hallo #{current_user.name}!
+    .col-xs-2.margin-top.pull-left
+    = link_to "Neues Ticket", new_ticket_path, :class => "btn btn-success"
+.container.cat
+  %ul
+    - collection.each do |ticket|
+      .panel
+        .panel-heading
+          %h1.panel-title.fa.fa-heart= link_to "  #{ticket.title}", ticket_path(ticket)
+        .panel-body
+          .row
+            .col-xs-3
+              %h3 Beschreibung
+              = ticket.description
+            .col-xs-3
+              %h3 Erstellt von
+              = current_user.name
+            / .col-xs-2
+            /   %h3 Status
+            /   - if ticket.label.try(:name) == "offen"
+            /     .btn.btn-danger
+            /       = ticket.label.try(:name)
+            /   - if ticket.label.try(:name) == "nochmal"
+            /     .btn.btn-warning
+            /       = ticket.label.try(:name)
+            /   - if ticket.label.try(:name) == "erledigt"
+            /     .btn.btn-success
+            /       = ticket.label.try(:name)
+          %hr
+          = link_to "Ticket bearbeiten", edit_ticket_path(ticket), :class => "btn btn-warning"

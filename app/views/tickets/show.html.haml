@@ -1,0 +1,30 @@
+- if @resource
+  .container.cat
+    .panel
+      .panel-heading
+        %h1.panel-title= @resource.title
+      .panel-body
+        .row
+          .col-xs-3
+            %h3.fa.fa-comment.fa-2x Beschreibung
+            = @resource.description
+          .col-xs-2
+            %h3.fa.fa-bullseye.fa-2x Erstellt von
+            = @resource.user_id
+          .col-xs-2
+            %h3.fa.fa-smile-o.fa-2x Von
+            .crazy-name
+              = @resource.user.try(:name).upcase if @resource.user
+          .col-xs-2
+            %h3.fa.fa-comment.fa-2x Status
+            - if @resource.label.try(:name) == "offen"
+              .btn.btn-danger
+                = @resource.label.try(:name)
+            - if @resource.label.try(:name) == "nochmal"
+              .btn.btn-warning
+                = @resource.label.try(:name)
+            - if @resource.label.try(:name) == "erledigt"
+              .btn.btn-success
+                = @resource.label.try(:name)
+
+= link_to "Zurück zum Start", ideas_path

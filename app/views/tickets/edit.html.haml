@@ -1,0 +1,17 @@
+%h2 Hier kannst du deine Idee bearbeiten
+
+= form_for @ticket do |f|
+  %li Titel
+  = f.text_field :title
+  %li Beschreibung
+  = f.text_area :description
+  %li Erstellt von
+  = f.text_field :user_id
+  %hr
+  =f.select :label, Label.all.map{|lab| [lab.name, lab.id]}
+  %hr
+  = f.submit "Änderungen speichern"
+  %hr
+
+= link_to "Zurück zu den Tickets", tickets_path, :class => "btn btn-success"
+%hr

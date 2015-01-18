@@ -1,0 +1,21 @@
+.container
+  .row
+
+    %h2 Hier kannst du deine neue Idee eintragen
+
+    = form_for @ticket do |f|
+      %li Titel
+      = f.text_field :title
+      %li Beschreibung
+      = f.text_area :description
+      %li Erstellt von
+      = f.text_field :user_id
+      %hr
+      Status
+      =f.select :label, Label.all.map{|lab| [lab.name, lab.id]}
+      %hr
+      = f.submit "Neues Ticket speichern", :class => "btn btn-warning"
+      %hr
+
+    = link_to "Zurück zum Start", tickets_path, :class => "btn btn-success"
+    %hr

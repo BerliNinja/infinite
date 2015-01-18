@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   root to: 'ideas#index'
   resources :ideas
   resources :categories
+  resources :tickets
 
   get '/about' => 'pages#about'
   get '/sitemap' => 'pages#sitemap'
